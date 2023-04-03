@@ -1,45 +1,43 @@
+import { contractGetApiResponseItemCheck } from './examples/largeCheck'
+import { contractGetResponce } from './examples/largeObject'
+import { numberToType } from './helpers'
 import './index.html'
-import { preV } from './validator'
+import { Tval } from './validator'
+import { n, s, b } from './values'
+
+const tablize = (tvalResult: any[]) => {
+  const tbody = document.getElementById('tbody') as HTMLTableElement
+  tvalResult.forEach((el: any) => {
+    const tr = document.createElement('tr'),
+          td1 = document.createElement('td'),
+          td2 = document.createElement('td'),
+          td3 = document.createElement('td'),
+          td4 = document.createElement('td')
+    td1.innerHTML = numberToType(el.validator)
+    td2.innerHTML = el.result
+    td3.innerHTML = el.key
+    td4.innerHTML = el.value
+    tr.append(td1, td2, td3, td4)
+    tbody.appendChild(tr)
+  })
+}
 
 const obj = {
-  zero: { id: '3', name: '8' },
-  one: ['1', 2, 3, null],
-  two: { id: 1000, name: 'Dracula'},
-  three: {
-    threeOne: 31
-  },
-  four: [{ id: 11, name: 'Artyom' }, { id: null }, { id: 'u' }, { id: 'u' }],
-  five: [{ id: 16, name: 'Gosha'}, { id: 19, name: null }],
-  six: null
-}
-const subCheck = {
-  id: 2,
-  name: 3
-}
-const subCheck2 = {
-  id: 2,
-  name: 1
-}
-const subCheck3 = {
-  id: 1,
-  name: 1
+  id: 947,
+  transport: [
+    { name: 'volvo', wheels: 4 },
+    { name: 'monobike', wheels: 1 },
+    { name: 'bicycle', wheels: 2 }
+  ],
+  today: "2024-10-03"
 }
 const check = {
-  zero: [{ id: 1, name: 2 }, 3, subCheck2,subCheck3], 
-  one: [[1,3]],
-  two: [subCheck, subCheck2],
-  three: {
-    threeOne: [2,1]
-  },
-  four: [{ id: [1,2] }],
-  five: [subCheck],
-  six: [3,1,subCheck2]
+  id: n,
+  transport: [
+    { name: s, wheels: [s,n]}
+  ],
+  today: [b]
 }
-let fullResult = {}
-
-fullResult = preV(obj, check)
-console.log(fullResult)
-
-
-// const outputWrapper = document.getElementById('output') as HTMLElement
-// outputWrapper.innerHTML = plus(4,4)
+const tvalResult = new Tval(obj, check).result
+tablize(tvalResult)
+console.log(tvalResult)
