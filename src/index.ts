@@ -1,26 +1,13 @@
+import { Table } from 'console-table-printer'
 import { contractGetApiResponseItemCheck } from './examples/largeCheck'
 import { contractGetResponce } from './examples/largeObject'
-import { numberToType } from './helpers'
+import { isString, numberToType } from './helpers'
 import './index.html'
-import { Tval } from './validator'
+import { TvalObject } from './types'
+import tval from './validator'
 import { n, s, b } from './values'
+import { tablize, tvalLog } from './wrapper'
 
-const tablize = (tvalResult: any[]) => {
-  const tbody = document.getElementById('tbody') as HTMLTableElement
-  tvalResult.forEach((el: any) => {
-    const tr = document.createElement('tr'),
-          td1 = document.createElement('td'),
-          td2 = document.createElement('td'),
-          td3 = document.createElement('td'),
-          td4 = document.createElement('td')
-    td1.innerHTML = numberToType(el.validator)
-    td2.innerHTML = el.result
-    td3.innerHTML = el.key
-    td4.innerHTML = el.value
-    tr.append(td1, td2, td3, td4)
-    tbody.appendChild(tr)
-  })
-}
 
 const obj = {
   id: 947,
@@ -38,6 +25,7 @@ const check = {
   ],
   today: [b]
 }
-const tvalResult = new Tval(obj, check).result
-tablize(tvalResult)
-console.log(tvalResult)
+const tvalResult = tval(obj, check)
+
+tvalLog(tvalResult)
+tablize('tvalResultContainer', tvalResult)

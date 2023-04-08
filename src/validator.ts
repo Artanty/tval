@@ -2,7 +2,7 @@ import { isObject, concat, isArray } from "./helpers"
 import { TvalObject, TvalResult, UnitValidator, UnitValue } from "./types"
 import { VAL_TYPE, validateUnitTypes } from "./values"
 
-export class Tval {
+class Tval {
   result: TvalObject[] = []
   constructor(data: any, rules: any) {
     this.process(data, rules)
@@ -62,5 +62,9 @@ export class Tval {
     }
     this.result.push({ key: key, value: data, validator: check, result: result })
   }
-  
+}
+
+export default function tval (data: any, rules: any): TvalObject[] {
+    const tvalClass = new Tval(data, rules)
+    return tvalClass.result
 }

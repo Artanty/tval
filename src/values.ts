@@ -12,3 +12,5 @@ export enum VAL_TYPE {
 }
 
 export const validateUnitTypes = ['null', 'string', 'number', 'boolean', 'any']
+
+export const validHTMLElements = ['th', 'td']

@@ -33,4 +33,4 @@ const tvalResult = new Tval(obj, check).result
 tablize(tvalResult)
 
 result: 
-![tval result](examples/result.png "a title")
+![tval result](https://github.com/Artanty/tval/blob/master/src/examples/result.png "")

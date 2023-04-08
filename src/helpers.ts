@@ -4,6 +4,24 @@ export const isObject = (data: any): boolean => typeof data === 'object' && !Arr
 
 export const isArray = (data: any): boolean => Array.isArray(data)
 
+export const isString = (data: any): boolean => typeof data === 'string'
+
+export const jParse = (data: any) => {
+  try {
+    return JSON.parse(data)
+  } catch (error) {
+    console.log(error)
+  }
+}
+
+export const toString = (data: any): string => {
+  let result = String(data)
+  if (result === '[object Object]') {
+    result = JSON.stringify(data)
+  }
+  return result
+}
+
 export const concat = (...strings: string[]) => strings.join('')
 
 export const numberToType = (typeNumber: number | number[], noBrackets: boolean = false): string => {
@@ -14,5 +32,13 @@ export const numberToType = (typeNumber: number | number[], noBrackets: boolean 
     return wrap(result)
   } else {
     return wrap(validateUnitTypes[typeNumber])
+  }
+}
+
+export const isHTMLElement = function(obj: any): boolean {
+  try {
+    return !!obj.constructor.__proto__.prototype.constructor.name
+  } catch(e) {
+    return false
   }
 }

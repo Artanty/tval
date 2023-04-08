@@ -2,17 +2,26 @@ body{
   padding: 0;
   margin: 0;
 }
-table{
-  min-width: 800px;
+
+table.tvalTable{
+  width: 100%;
   border-collapse: collapse;
   margin: 0 auto;
 }
-table td {
+
+table.tvalTable td {
   padding: 0 3px;
 }
-thead th {
+
+table.tvalTable thead th {
   text-align: left;
+  font-weight: 600;
 }
-tbody > tr:nth-child(even){
+
+table.tvalTable tbody > tr:nth-child(even){
   background-color: #f3f3f3;
+}
+#tvalResultContainer{
+  width: 800px;
+  margin: 0 auto;
 }

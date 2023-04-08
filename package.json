@@ -3,7 +3,9 @@
   "version": "1.0.1",
   "description": "",
   "main": "src/index.js",
-  "dependencies": {},
+  "dependencies": {
+    "console-table-printer": "^2.11.1"
+  },
   "devDependencies": {
     "html-loader": "^4.2.0",
     "html-webpack-plugin": "^5.5.0",
