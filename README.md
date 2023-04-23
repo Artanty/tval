@@ -2,17 +2,17 @@
 
 simple type validation for api request and response
 
-0 - null
-n - number
-s - string
-b - boolean
-a - any
+- 0 - null
+- n - number
+- s - string
+- b - boolean
+- a - any
 
-##Conditional types:
+### Conditional types:
 [n, 0] - number or null
 
-##Example usage:
-
+### Example usage:
+```html
 const obj = {
   id: 947,
   transport: [
@@ -31,6 +31,6 @@ const check = {
 }
 const tvalResult = new Tval(obj, check).result
 tablize(tvalResult)
-
-result: 
+```
+### result: 
 ![tval result](https://github.com/Artanty/tval/blob/master/src/examples/result.png "")
