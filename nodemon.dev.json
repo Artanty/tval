@@ -1,0 +1,20 @@
+{
+  "env": {
+    "NODE_ENV": "development"
+  },
+  "watch": [
+    "src",
+    "webpack.dev.js",
+    "webpack-raw-asset-plugin.js",
+    "webpack-html-inject-raw-plugin.js",
+    "webpack-helpers.js",
+    ".eslintrc"
+  ],
+  "ignore": [
+    "src/**/*.test.js",
+    "node_modules",
+    "src/assets"
+  ],
+  "ext": "js,hbs,ts,json",
+  "exec": "webpack --config webpack.dev.js && webpack serve --open --config webpack.dev.js"
+}

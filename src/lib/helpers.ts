@@ -1,4 +1,4 @@
-import { validateUnitTypes } from "./values"
+import { validateUnitTypes } from '@lib/values'
 
 export const isObject = (data: any): boolean => typeof data === 'object' && !Array.isArray(data) && data !== null
 
@@ -6,7 +6,7 @@ export const isArray = (data: any): boolean => Array.isArray(data)
 
 export const isString = (data: any): boolean => typeof data === 'string'
 
-export const jParse = (data: any) => {
+export const jParse = (data: any): any => {
   try {
     return JSON.parse(data)
   } catch (error) {
@@ -22,10 +22,10 @@ export const toString = (data: any): string => {
   return result
 }
 
-export const concat = (...strings: string[]) => strings.join('')
+export const concat = (...strings: string[]): string => strings.join('')
 
 export const numberToType = (typeNumber: number | number[], noBrackets: boolean = false): string => {
-  const wrap = (data: string) => noBrackets ? data : concat('(', data, ')')
+  const wrap = (data: string): string => noBrackets ? data : concat('(', data, ')')
   if (Array.isArray(typeNumber)) {
     const appendDelimiter = (i: number): string => ((typeNumber.length > 1) && (typeNumber.length - 1 > i)) ? ' | ' : ''
     const result: string = typeNumber.reduce((acc: string, curr: number, i: number) => acc + numberToType(curr, true) + appendDelimiter(i), '')
@@ -35,7 +35,7 @@ export const numberToType = (typeNumber: number | number[], noBrackets: boolean 
   }
 }
 
-export const isHTMLElement = function(obj: any): boolean {
+export const isHTMLElement = function (obj: any): boolean {
   try {
     return !!obj.constructor.__proto__.prototype.constructor.name
   } catch(e) {

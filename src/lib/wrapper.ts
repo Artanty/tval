@@ -1,13 +1,10 @@
 import { Table } from 'console-table-printer'
-import { contractGetApiResponseItemCheck } from './examples/largeCheck'
-import { contractGetResponce } from './examples/largeObject'
-import { isHTMLElement, isString, numberToType } from './helpers'
-import './index.html'
-import { TvalObject } from './types'
-import tval from './validator'
-import { n, s, b, validHTMLElements } from './values'
-const { printTable } = require('console-table-printer');
+import { isHTMLElement, numberToType } from '@lib/helpers'
+import { TvalObject } from '@lib/types'
+import { validHTMLElements } from '@lib/values'
 
+// eslint-disable-next-line @typescript-eslint/no-unused-vars
+const { printTable } = require('console-table-printer')
 
 const createOrReturnHTMLElement = (el: HTMLElement | string): HTMLElement => {
   if (isHTMLElement(el)) {
@@ -51,7 +48,7 @@ const appendChildrenWithTextNodes = (parent: HTMLElement | string, childNodeName
   }
 }
 
-export const tablize = (wrapperId: string, tvalResult: TvalObject[]) => {
+export const tablize = (wrapperId: string, tvalResult: TvalObject[]): void => {
   try {
     const wrapper = document.getElementById(wrapperId)
     if (!wrapper) {
@@ -74,7 +71,7 @@ export const tablize = (wrapperId: string, tvalResult: TvalObject[]) => {
   }
 }
 
-export const tvalLog = (tvalResults: TvalObject[], onlyFalsy: boolean = false) => {
+export const tvalLog = (tvalResults: TvalObject[], onlyFalsy: boolean = false): void => {
   try {
     if (!tvalResults.length || !tvalResults?.[0]?.key) {
       throw new Error('Некорректный результат Tval')
@@ -83,7 +80,7 @@ export const tvalLog = (tvalResults: TvalObject[], onlyFalsy: boolean = false) =
       tvalResults = tvalResults.filter((el: TvalObject) => el.result !== true)
     }
     const p = new Table({
-      title: "Tval result",
+      title: 'Tval result',
       columns: [
         { name: 'type', alignment: 'left', color: 'black'},
         { name: 'isMatched', alignment: 'left'},
@@ -98,7 +95,7 @@ export const tvalLog = (tvalResults: TvalObject[], onlyFalsy: boolean = false) =
         prop: tvalResult.key,
         value: tvalResult.value
       }
-      p.addRow(consoleTvalObject, { color: tvalResult.result === true ? 'green' : 'red' });
+      p.addRow(consoleTvalObject, { color: tvalResult.result === true ? 'green' : 'red' })
     })
     p.printTable()
   } catch (e) {

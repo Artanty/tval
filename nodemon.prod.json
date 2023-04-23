@@ -1,0 +1,20 @@
+{
+  "env": {
+    "NODE_ENV": "production"
+  },
+  "watch": [
+    "src",
+    "webpack.prod.js",
+    "webpack.prod-examples.js",
+    "webpack-raw-asset-plugin.js",
+    "webpack-html-inject-raw-plugin.js",
+    "webpack-helpers.js"
+  ],
+  "ignore": [
+    "src/**/*.test.js",
+    "node_modules",
+    "src/assets"
+  ],
+  "ext": "html,js,hbs,ts,json",
+  "exec": "webpack --config webpack.prod.js && webpack --config webpack.prod-examples.js"
+}

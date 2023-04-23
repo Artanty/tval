@@ -8,7 +8,7 @@ export enum VAL_TYPE {
   STRING = 1,
   NUMBER = 2,
   BOOLEAN = 3,
-  ANY = 4
+  ANY = 4,
 }
 
 export const validateUnitTypes = ['null', 'string', 'number', 'boolean', 'any']
