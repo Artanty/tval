@@ -1,0 +1,26 @@
+body{
+  padding: 0;
+  margin: 0;
+}
+table.tvalTable{
+  width: 100%;
+  border-collapse: collapse;
+  margin: 0 auto;
+}
+
+table.tvalTable td {
+  padding: 0 3px;
+}
+
+table.tvalTable thead th {
+  text-align: left;
+  font-weight: 600;
+}
+
+table.tvalTable tbody > tr:nth-child(even){
+  background-color: #f3f3f3;
+}
+#tvalResultContainer{
+  width: 800px;
+  margin: 0 auto;
+}
