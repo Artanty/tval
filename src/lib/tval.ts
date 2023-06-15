@@ -4,7 +4,7 @@ import { VAL_TYPE, validateUnitTypes } from '@lib/values'
 
 class Tval {
   result: TvalObject[] = []
-  value: number = 999111
+  
   constructor (data: any, rules: any) {
     this.process(data, rules)
   }
