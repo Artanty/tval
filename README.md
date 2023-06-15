@@ -19,7 +19,7 @@ npm i tval -D
 ##### CDN
 
 ```html
-<script src="https://cdn.jsdelivr.net/npm/queryzz/dist/queryzz.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/tval/dist/tval.js"></script>
 ```
 
 ## How to use
